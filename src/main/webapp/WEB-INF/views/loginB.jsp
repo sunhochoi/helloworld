@@ -12,14 +12,14 @@
 </head>
 <body>
 <h1>
-	Hello world!  
+	LOGINB 
 </h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+<P>  로그인 이후 페이지  </P>
 
 <p>
-		<a href="<c:url value="/home?lang=ko" />">한국어</a>
-		<a href="<c:url value="/home?lang=en" />">English</a>
+		<a href="<c:url value="/i18n.do?lang=ko" />">한국어</a>
+		<a href="<c:url value="/i18n.do?lang=en" />">English</a>
 	</p>
 	<p>site.title : <spring:message code="site.title" text="default text" /></p>
 	<p>site.count : <spring:message code="site.count" arguments="첫번째" text="default text" /></p>

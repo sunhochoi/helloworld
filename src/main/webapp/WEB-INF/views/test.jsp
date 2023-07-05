@@ -18,17 +18,11 @@
 <P>  The time on the server is ${serverTime}. </P>
 
 <p>
-		<a href="<c:url value="/home?lang=ko" />">한국어</a>
-		<a href="<c:url value="/home?lang=en" />">English</a>
+		<a href="<c:url value="/i18n.do?lang=ko" />">한국어</a>
+		<a href="<c:url value="/i18n.do?lang=en" />">English</a>
 	</p>
-	<p>site.title : <spring:message code="site.title" text="default text" /></p>
-	<p>site.count : <spring:message code="site.count" arguments="첫번째" text="default text" /></p>
-	<p>site.count using EL : <spring:message code="site.count" arguments="${siteCount}" text="default text" /></p>
-	<p>not.exist : <spring:message code="not.exist" text="default text" /></p>
-	<%--
-	<p>not.exist 기본값 없음 : <spring:message code="not.exist" /></p>
-	--%>
-	
+
+
 </body>
 </html>
 

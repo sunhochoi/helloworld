@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sun.hello.mapper.joinMemberMapper">
+
+<!-- select  -->
+
+<!-- insert -->
+<insert id="addMember" parameterType="com.sun.hello.model.JoinVO">
+		/* 회원가입 */
+		INSERT INTO USER
+		(	  ID
+			, PW
+			, NAME
+			, TEL
+			, ADDR1
+			, ADDR2
+			, BIRTH_DATE
+			, EMAIL
+			, AGREE_YN
+			, USED_YN
+			, REG_DATE
+		)VALUES (
+			  #{id}
+			, #{pw}
+			, #{userName}
+			, #{tel}
+			, #{addr1}
+			, #{addr2}
+			, #{birthDate}
+			, #{email}
+			, #{agreeYn}
+			, #{usedYn}
+			, NOW()
+		)
+</insert>
+
+<!-- update  -->
+<update id="updateMember" parameterType="com.sun.hello.model.JoinVO">
+		
+		UPDATE USER 
+		   SET PW    		= #{pw}
+		      ,NAME  		= #{userName}
+		      ,TEL   		= #{tel}
+		      ,ADDR1 		= #{addr1}
+		      ,ADDR2 		= #{addr2}
+		      ,BIRTH_DATE 	= #{birthDate}
+		      ,EMAIL 		= #{email}
+		      ,AGREE_YN 	= #{agreeYn}
+		      ,USED_YN	 	= #{usedYn}
+		      ,MOD_DATE	 	= MOW()
+		WHERE id = #{id}
+</update>
+
+
+<!-- delete -->
+
+<delete  id="deleteMember" parameterType="String">
+		
+		DELETE FROM USER WHERE ID = #{id}
+</delete >
+
+
+<select id="selectId" resultType="int" parameterType="String">
+		SELECT COUNT(*) 
+		 FROM USER 
+	    WHERE ID =#{id}
+</select>
+
+
+<select id="selectMemberCnt" resultType="int" parameterType="com.sun.hello.model.JoinVO">
+		SELECT COUNT(*) 
+		 FROM USER 
+	    WHERE ID = #{id}
+	      AND PW = #{pw}
+</select>
+
+
+<select id="selectMember" resultType="com.sun.hello.model.JoinVO" parameterType="String">
+		SELECT * 
+		 FROM USER 
+	    WHERE ID =#{id}
+	      
+</select>
+
+
+</mapper>
